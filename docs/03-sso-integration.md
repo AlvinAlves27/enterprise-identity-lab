@@ -17,7 +17,7 @@ Implement SAML 2.0-based Single Sign-On between Microsoft Entra ID and Salesforc
 
 ## Architecture
 
-![SSO Flow](../images/architecture/sso-flow.svg)
+![SSO Flow](../architecture/sso-flow.svg)
 
 ---
 
@@ -33,21 +33,21 @@ Add Salesforce from the Entra ID application gallery and configure user assignme
 
 Navigate to *Enterprise applications → New application → Browse Microsoft Entra App Gallery → search "Salesforce"*.
 
-![Add Salesforce App from Gallery](../images/part-3/01-add-salesforce-app.png)
+![Add Salesforce App from Gallery](../part-3/01-add-salesforce-app.png)
 
 **Step 2: Assign User to Application**
 
 Navigate to *Users and groups → Add user/group*.
 
-![Assign User to Salesforce](../images/part-3/02-assign-user-to-salesforce.png)
+![Assign User to Salesforce](../part-3/02-assign-user-to-salesforce.png)
 
 **Step 3: Select Application Role**
 
-![Select System Administrator](../images/part-3/03-select-system-administrator.png)
+![Select System Administrator](../part-3/03-select-system-administrator.png)
 
 **Step 4: Confirm Assignment**
 
-![User Assignment Confirmed](../images/part-3/04-user-assignment-confirmed.png)
+![User Assignment Confirmed](../part-3/04-user-assignment-confirmed.png)
 
 ### Application Assignment Summary
 
@@ -87,17 +87,17 @@ Navigate to *Single sign-on → SAML → Edit Basic SAML Configuration*.
 | Reply URL (ACS) | `https://<your-org>.develop.my.salesforce.com` |
 | Sign-on URL | `https://<your-org>.develop.my.salesforce.com` |
 
-![Basic SAML Configuration](../images/part-3/05-basic-saml-config.png)
+![Basic SAML Configuration](../part-3/05-basic-saml-config.png)
 
 **Step 2: Review SAML Configuration Overview**
 
-![SAML Overview](../images/part-3/06-saml-overview.png)
+![SAML Overview](../part-3/06-saml-overview.png)
 
 **Step 3: Download Federation Credentials**
 
 Download both the Federation Metadata XML and Base64 Certificate.
 
-![Download SAML Credentials](../images/part-3/07-download-saml-credentials.png)
+![Download SAML Credentials](../part-3/07-download-saml-credentials.png)
 
 ### Downloaded Files
 
@@ -132,13 +132,13 @@ Configure Salesforce as the Service Provider (SP) to trust Microsoft Entra ID as
 
 *Setup → My Domain → Verify domain deployment.*
 
-![Salesforce My Domain](../images/part-3/08-salesforce-my-domain.png)
+![Salesforce My Domain](../part-3/08-salesforce-my-domain.png)
 
 **Step 2: Enable SAML**
 
 *Setup → Single Sign-On Settings → Edit → Enable SAML.*
 
-![Salesforce SAML Enabled](../images/part-3/09-salesforce-saml-enabled.png)
+![Salesforce SAML Enabled](../part-3/09-salesforce-saml-enabled.png)
 
 **Step 3: Create SAML SSO Configuration**
 
@@ -153,15 +153,15 @@ Configure Salesforce as the Service Provider (SP) to trust Microsoft Entra ID as
 | SAML Identity Type | Federation ID |
 | Service Provider Initiated Request Binding | HTTP Redirect |
 
-![SAML SSO Config Edit Form](../images/part-3/10-saml-sso-config-edit.png)
+![SAML SSO Config Edit Form](../part-3/10-saml-sso-config-edit.png)
 
-![SAML SSO Config Saved](../images/part-3/11-saml-sso-config-saved.png)
+![SAML SSO Config Saved](../part-3/11-saml-sso-config-saved.png)
 
 **Step 4: Configure Authentication Settings**
 
 *Setup → My Domain → Authentication Configuration → Edit.*
 
-![Salesforce Authentication Configuration](../images/part-3/12-salesforce-auth-config.png)
+![Salesforce Authentication Configuration](../part-3/12-salesforce-auth-config.png)
 
 ### Outcome
 
@@ -198,15 +198,15 @@ Create matching user accounts in Salesforce and configure attribute claims to en
 | Profile | System Administrator |
 | Federation ID | `rootadmin1@zerotrustlabs.it.com` |
 
-![Create Salesforce User](../images/part-3/13-create-salesforce-user.png)
+![Create Salesforce User](../part-3/13-create-salesforce-user.png)
 
-![Salesforce User Detail](../images/part-3/14-salesforce-user-detail.png)
+![Salesforce User Detail](../part-3/14-salesforce-user-detail.png)
 
 **Step 2: Verify Attribute Mapping in Entra**
 
 *Enterprise Applications → Salesforce → Single sign-on → Attributes & Claims.*
 
-![Attribute Mapping](../images/part-3/15-attribute-mapping.png)
+![Attribute Mapping](../part-3/15-attribute-mapping.png)
 
 ### Claim Mapping Summary
 
@@ -238,23 +238,23 @@ Validate the complete SSO flow from initial access through authenticated session
 
 **Step 1: Access Salesforce Login**
 
-![Salesforce Login](../images/part-3/16-salesforce-login.png)
+![Salesforce Login](../part-3/16-salesforce-login.png)
 
 **Step 2: Authenticate with Entra**
 
 Click *Log in with sts* → redirected to Microsoft login.
 
-![SSO Pick Account](../images/part-3/17-sso-pick-account.png)
+![SSO Pick Account](../part-3/17-sso-pick-account.png)
 
 **Step 3: Verify SSO Success**
 
-![SSO Success](../images/part-3/18-sso-success.png)
+![SSO Success](../part-3/18-sso-success.png)
 
 **Step 4: Optional — Streamlined Authentication**
 
 Disable local login to enforce SSO-only access.
 
-![Enforce SSO Only](../images/part-3/19-enforce-sso-only.png)
+![Enforce SSO Only](../part-3/19-enforce-sso-only.png)
 
 ### SSO Flow Verification
 
@@ -276,7 +276,7 @@ Disable local login to enforce SSO-only access.
 
 - SSO eliminates password fatigue for end users
 - Windows-connected accounts enable true single sign-on
-- Disabling local login enforces centralized authentication policy
+- Disabling local login eliminates password attack vector
 - SSO provides a single audit trail for security compliance
 
 ---
