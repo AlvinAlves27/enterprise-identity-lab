@@ -1,3 +1,4 @@
+
 # Part 2: Hybrid Identity Bridge
 
 > **Entra Connect & Directory Sync** — extending on-premises Active Directory to Microsoft Entra ID for seamless hybrid authentication.
@@ -17,7 +18,7 @@ Establish hybrid identity infrastructure connecting on-premises Active Directory
 
 ## Architecture
 
-![Hybrid Sync Architecture](../images/architecture/hybrid-sync.svg)
+![Hybrid Sync Architecture](../architecture/hybrid-sync.svg)
 
 ---
 
@@ -33,7 +34,7 @@ Before synchronizing identities, the custom domain must be verified in Entra ID 
 
 Navigate to *Microsoft Entra admin center → Settings → Domain names → Add custom domain*.
 
-![Add Custom Domain](../images/part-2/01-add-custom-domain.png)
+![Add Custom Domain](../part-2/01-add-custom-domain.png)
 
 **Step 2: Configure DNS TXT Record**
 
@@ -46,17 +47,17 @@ Add the verification TXT record to your domain registrar:
 | Value | `MS=ms########` (provided by Entra) |
 | TTL | Automatic |
 
-![DNS TXT Record in Namecheap](../images/part-2/02-dns-txt-record-namecheap.png)
+![DNS TXT Record in Namecheap](../part-2/02-dns-txt-record-namecheap.png)
 
 **Step 3: Verify Domain Ownership**
 
 Return to Entra and click *Verify* after DNS propagation (typically 5–15 minutes).
 
-![Verify Domain](../images/part-2/03-verify-domain.png)
+![Verify Domain](../part-2/03-verify-domain.png)
 
 **Step 4: Confirm Verification Status**
 
-![Domain Verified](../images/part-2/04-domain-verified.png)
+![Domain Verified](../part-2/04-domain-verified.png)
 
 ### Outcome
 
@@ -90,7 +91,7 @@ Navigate to *Users → New user → Create new user*.
 | Display name | `entrauser1` |
 | Auto-generate password | Yes |
 
-![Create Cloud User](../images/part-2/05-create-cloud-user.png)
+![Create Cloud User](../part-2/05-create-cloud-user.png)
 
 **Step 2: Create Security Group**
 
@@ -102,31 +103,31 @@ Navigate to *Groups → New group*.
 | Group name | `EntraSourced` |
 | Membership type | Assigned |
 
-![Create Security Group](../images/part-2/06-create-security-group.png)
+![Create Security Group](../part-2/06-create-security-group.png)
 
 **Step 3: Add User to Group**
 
 *Edit group → Members → Add members → Select `entrauser1`.*
 
-![Group Add User](../images/part-2/07-group-add-user.png)
+![Group Add User](../part-2/07-group-add-user.png)
 
-![Group Members Confirmed](../images/part-2/08-group-members-confirmed.png)
+![Group Members Confirmed](../part-2/08-group-members-confirmed.png)
 
 **Step 4: Assign Directory Role**
 
 Navigate to *User → Assigned roles → Add assignments → Global Reader*.
 
-![Assign Global Reader Role](../images/part-2/09-assign-global-reader-role.png)
+![Assign Global Reader Role](../part-2/09-assign-global-reader-role.png)
 
-![Role Assigned](../images/part-2/10-role-assigned.png)
+![Role Assigned](../part-2/10-role-assigned.png)
 
 **Step 5: Verify User Authentication**
 
 Test login at `login.microsoftonline.com` with new credentials.
 
-![entrauser1 Sign-in](../images/part-2/11-entrauser1-signin.png)
+![entrauser1 Sign-in](../part-2/11-entrauser1-signin.png)
 
-![entrauser1 Success](../images/part-2/12-entrauser1-success.png)
+![entrauser1 Success](../part-2/12-entrauser1-success.png)
 
 ### Outcome
 
@@ -156,19 +157,19 @@ Deploy Microsoft Entra Connect to establish the synchronization bridge between o
 
 Navigate to *Microsoft Entra admin center → Hybrid management → Microsoft Entra Connect → Download*.
 
-![Entra Connect Download](../images/part-2/13-entra-connect-download.png)
+![Entra Connect Download](../part-2/13-entra-connect-download.png)
 
-![Entra Connect Installer](../images/part-2/14-entra-connect-installer.png)
+![Entra Connect Installer](../part-2/14-entra-connect-installer.png)
 
 **Step 2: Troubleshoot Permissions**
 
 During installation, connecting to AD DS may fail with a permission error:
 
-![Permission Error](../images/part-2/15-permission-error.png)
+![Permission Error](../part-2/15-permission-error.png)
 
 **Resolution:** Add the service account to the Enterprise Admins group.
 
-![Add to Enterprise Admins](../images/part-2/16-add-to-enterprise-admins.png)
+![Add to Enterprise Admins](../part-2/16-add-to-enterprise-admins.png)
 
 **Step 3: Complete Configuration**
 
@@ -177,7 +178,7 @@ During installation, connecting to AD DS may fail with a permission error:
 - Configure Azure AD credentials (Global Administrator)
 - Configure AD DS credentials (Enterprise Admin)
 
-![Entra Connect Configuration Complete](../images/part-2/17-entra-connect-config-complete.png)
+![Entra Connect Configuration Complete](../part-2/17-entra-connect-config-complete.png)
 
 ### Configuration Summary
 
@@ -215,21 +216,21 @@ Create a dedicated Global Administrator account for cloud management, separating
 
 **Step 1: Create Admin User**
 
-![Create Global Admin](../images/part-2/18-create-global-admin.png)
+![Create Global Admin](../part-2/18-create-global-admin.png)
 
 **Step 2: Verify User List**
 
 Confirm all users visible in Entra admin center.
 
-![Users List](../images/part-2/19-users-list.png)
+![Users List](../part-2/19-users-list.png)
 
 **Step 3: Test Authentication**
 
-![Global Admin Sign-in](../images/part-2/20-globaladmin-signin.png)
+![Global Admin Sign-in](../part-2/20-globaladmin-signin.png)
 
 ### Azure Infrastructure Status
 
-![VMs Running](../images/part-2/21-vms-running.png)
+![VMs Running](../part-2/21-vms-running.png)
 
 ### Outcome
 
@@ -257,13 +258,13 @@ Configure User Principal Name (UPN) suffixes in Active Directory to match the ve
 
 Open *Active Directory Domains and Trusts → Right-click root → Properties → Add UPN suffix*.
 
-![Add UPN Suffix](../images/part-2/22-upn-suffix-add.png)
+![Add UPN Suffix](../part-2/22-upn-suffix-add.png)
 
 **Step 2: Change User UPN**
 
 Open *AD Users and Computers → User Properties → Account tab → Change UPN suffix*.
 
-![User UPN Change](../images/part-2/23-user-upn-change.png)
+![User UPN Change](../part-2/23-user-upn-change.png)
 
 **Step 3: Force Delta Sync**
 
@@ -273,13 +274,13 @@ Execute PowerShell command to trigger immediate synchronization:
 Start-ADSyncSyncCycle -PolicyType Delta
 ```
 
-![Force Sync PowerShell](../images/part-2/24-force-sync-powershell.png)
+![Force Sync PowerShell](../part-2/24-force-sync-powershell.png)
 
 **Step 4: Verify Synchronization**
 
 Check *Entra admin center → Users* and verify the *On-premises sync* column shows *Yes*.
 
-![On-Prem Sync Verified](../images/part-2/25-onprem-sync-verified.png)
+![On-Prem Sync Verified](../part-2/25-onprem-sync-verified.png)
 
 ### Verification Checklist
 
@@ -314,29 +315,29 @@ Register Windows client devices with both on-premises AD and Entra ID, enabling 
 
 **Step 1: Verify Domain Membership**
 
-![Domain Membership Verified](../images/part-2/26-domain-membership-verified.png)
+![Domain Membership Verified](../part-2/26-domain-membership-verified.png)
 
 **Step 2: Add Work Account**
 
 *Settings → Accounts → Access work or school → Connect.*
 
-![Work Account Setup](../images/part-2/27-work-account-setup.png)
+![Work Account Setup](../part-2/27-work-account-setup.png)
 
-![Work Account Prompt](../images/part-2/28-work-account-prompt.png)
+![Work Account Prompt](../part-2/28-work-account-prompt.png)
 
 **Step 3: Test Hybrid User Authentication**
 
 Add synced user's work account to device.
 
-![Account Added](../images/part-2/29-account-added.png)
+![Account Added](../part-2/29-account-added.png)
 
-![Hybrid Device State](../images/part-2/30-hybrid-device-state.png)
+![Hybrid Device State](../part-2/30-hybrid-device-state.png)
 
 **Step 4: Verify Hybrid State**
 
-![Hybrid Device in Azure](../images/part-2/31-hybrid-device-azure.png)
+![Hybrid Device in Azure](../part-2/31-hybrid-device-azure.png)
 
-![Hybrid Device Detail](../images/part-2/32-hybrid-device-detail.png)
+![Hybrid Device Detail](../part-2/32-hybrid-device-detail.png)
 
 ### Device Registration Summary
 
