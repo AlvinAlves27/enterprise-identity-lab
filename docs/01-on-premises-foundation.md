@@ -18,7 +18,7 @@ Build a production-like on-premises Active Directory environment hosted in Azure
 
 ## Architecture
 
-![On-Premises Foundation Architecture](../images/architecture/on-prem-foundation.svg)
+![On-Premises Foundation Architecture](../architecture/on-prem-foundation.svg)
 
 This lab simulates an on-premises enterprise environment hosted entirely in Azure:
 
@@ -37,7 +37,7 @@ This lab simulates an on-premises enterprise environment hosted entirely in Azur
 
 Created `zerotrustlab` resource group in East US to contain all lab resources.
 
-![Resource Group Creation](../images/part-1/01-resource-group.png)
+![Resource Group Creation](../part-1/01-resource-group.png)
 
 ### 1.2 Virtual Network Configuration
 
@@ -50,7 +50,7 @@ Deployed virtual network with enterprise-appropriate address space.
 | Subnet | `default` — `10.0.0.0/24` (256 addresses) |
 | Region | East US |
 
-![Virtual Network](../images/part-1/02-virtual-network.png)
+![Virtual Network](../part-1/02-virtual-network.png)
 
 ### 1.3 Domain Controller VM Deployment
 
@@ -63,11 +63,11 @@ Provisioned Windows Server 2019 VM to serve as the domain controller.
 | Size | Standard D2s v3 (2 vCPUs, 8 GB RAM) |
 | Region | East US |
 
-![DC VM Create - Basics](../images/part-1/03-dc-vm-create-1.png)
+![DC VM Create - Basics](../part-1/03-dc-vm-create-1.png)
 
-![DC VM Create - Networking](../images/part-1/04-dc-vm-create-2.png)
+![DC VM Create - Networking](../part-1/04-dc-vm-create-2.png)
 
-![DC VM Connect](../images/part-1/05-dc-vm-connect.png)
+![DC VM Connect](../part-1/05-dc-vm-connect.png)
 
 ---
 
@@ -79,7 +79,7 @@ Provisioned Windows Server 2019 VM to serve as the domain controller.
 
 Installed Active Directory Domain Services role via Server Manager's *Add Roles and Features* wizard.
 
-![AD DS Role Install](../images/part-1/06-ad-ds-role-install.png)
+![AD DS Role Install](../part-1/06-ad-ds-role-install.png)
 
 **Role Description:** AD DS stores information about objects on the network and makes this information available to users and network administrators. It uses domain controllers to give network users access to permitted resources through a single logon process.
 
@@ -92,7 +92,7 @@ Configured DNS to enable domain name resolution within the environment.
 | Primary DNS | `127.0.0.1` | Loopback — DC handles internal queries |
 | Alternate DNS | `8.8.8.8` | Google DNS — fallback for internet resolution |
 
-![DNS Configuration](../images/part-1/07-dns-config.png)
+![DNS Configuration](../part-1/07-dns-config.png)
 
 **Technical note:** The loopback configuration ensures all domain queries are resolved locally by the DC's integrated DNS, while Google DNS provides internet connectivity for external resources.
 
@@ -107,7 +107,7 @@ Promoted the server to a domain controller and created a new Active Directory fo
 | Forest Functional Level | Windows Server 2016 |
 | Domain Functional Level | Windows Server 2016 |
 
-![Forest Creation](../images/part-1/08-forest-creation.png)
+![Forest Creation](../part-1/08-forest-creation.png)
 
 **Why `zerotrustlabs.local`?** The `.local` suffix indicates a non-routable internal domain, following Microsoft best practices for environments that will integrate with cloud services.
 
@@ -121,7 +121,7 @@ Promoted the server to a domain controller and created a new Active Directory fo
 
 Created a custom `OnPrem Users` OU to organize managed identities separately from built-in containers.
 
-![OU Structure](../images/part-1/09-ou-structure.png)
+![OU Structure](../part-1/09-ou-structure.png)
 
 OU configuration:
 
@@ -141,7 +141,7 @@ Created five user accounts representing different organizational roles:
 | `manager` | Department Manager | Mid-level management |
 | `rootadmin1` | Privileged Admin | Domain administration account |
 
-![User Provisioning](../images/part-1/10-user-provisioning.png)
+![User Provisioning](../part-1/10-user-provisioning.png)
 
 ### 3.3 Security Group & RBAC Implementation
 
@@ -154,9 +154,9 @@ rootadmin1 (User)
                         └── Member of: Enterprise Admins
 ```
 
-![onpremadmin Group](../images/part-1/11-onpremadmin-group.png)
+![onpremadmin Group](../part-1/11-onpremadmin-group.png)
 
-![Nested Group Membership](../images/part-1/12-nested-group-membership.png)
+![Nested Group Membership](../part-1/12-nested-group-membership.png)
 
 **RBAC pattern, explained:**
 
@@ -182,7 +182,7 @@ Created a Windows 11 Enterprise VM to simulate a managed employee workstation.
 | Size | Standard D2s v3 (2 vCPUs, 8 GB RAM) |
 | Auto-Shutdown | 7:00 PM EST |
 
-![Win11 Client VM](../images/part-1/13-win11-client-vm.png)
+![Win11 Client VM](../part-1/13-win11-client-vm.png)
 
 ### 4.2 Client DNS Configuration
 
@@ -193,7 +193,7 @@ Configured the Windows 11 client to use the domain controller as its primary DNS
 | Preferred DNS | `172.19.0.4` (Domain Controller) |
 | Alternate DNS | `8.8.8.8` (Google DNS) |
 
-![Client DNS Config](../images/part-1/14-client-dns-config.png)
+![Client DNS Config](../part-1/14-client-dns-config.png)
 
 **Why this step matters:** Without pointing to the DC's DNS, the client cannot resolve `zerotrustlabs.local` and domain join fails. This is a common troubleshooting scenario in enterprise environments.
 
@@ -201,9 +201,9 @@ Configured the Windows 11 client to use the domain controller as its primary DNS
 
 Joined the Windows 11 client to the `zerotrustlabs.local` domain using the privileged `rootadmin1` account.
 
-![Domain Join Credentials](../images/part-1/15-domain-join-credentials.png)
+![Domain Join Credentials](../part-1/15-domain-join-credentials.png)
 
-![Domain Join Success](../images/part-1/16-domain-join-success.png)
+![Domain Join Success](../part-1/16-domain-join-success.png)
 
 Process flow:
 
@@ -217,7 +217,7 @@ Process flow:
 
 Successfully logged into the domain-joined workstation as `rootadmin1`, confirming end-to-end identity management.
 
-![Domain User Login](../images/part-1/17-domain-user-login.png)
+![Domain User Login](../part-1/17-domain-user-login.png)
 
 The Start menu shows `rootadmin1` as the logged-in user, confirming:
 
