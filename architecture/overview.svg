@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 420" width="850" height="420">
+  <!-- Background -->
+  <rect width="850" height="420" fill="#0f172a"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <filter id="shadow3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Title -->
+  <text x="425" y="35" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold">Skills &amp; Technologies Mastered</text>
+  <text x="425" y="58" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="12">Enterprise Identity Lab Portfolio</text>
+  
+  <!-- Directory Services Card -->
+  <g filter="url(#shadow3)">
+    <rect x="30" y="80" width="185" height="145" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <text x="122" y="108" text-anchor="middle" fill="#6ee7b7" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600">🗂️ Directory Services</text>
+    <line x1="50" y1="120" x2="195" y2="120" stroke="#10b981" stroke-width="1" opacity="0.5"/>
+    <text x="122" y="143" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Active Directory</text>
+    <text x="122" y="163" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Microsoft Entra ID</text>
+    <text x="122" y="183" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">DNS Management</text>
+    <text x="122" y="203" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Group Policy</text>
+  </g>
+  
+  <!-- Synchronization Card -->
+  <g filter="url(#shadow3)">
+    <rect x="235" y="80" width="185" height="145" rx="10" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="2"/>
+    <text x="327" y="108" text-anchor="middle" fill="#7dd3fc" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600">🔄 Synchronization</text>
+    <line x1="255" y1="120" x2="400" y2="120" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
+    <text x="327" y="143" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Entra Connect</text>
+    <text x="327" y="163" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Password Hash Sync</text>
+    <text x="327" y="183" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Delta Sync</text>
+    <text x="327" y="203" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">UPN Configuration</text>
+  </g>
+  
+  <!-- Authentication Card -->
+  <g filter="url(#shadow3)">
+    <rect x="440" y="80" width="185" height="145" rx="10" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2"/>
+    <text x="532" y="108" text-anchor="middle" fill="#93c5fd" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600">🔐 Authentication</text>
+    <line x1="460" y1="120" x2="605" y2="120" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+    <text x="532" y="143" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">SAML 2.0 SSO</text>
+    <text x="532" y="163" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Multi-Factor Auth</text>
+    <text x="532" y="183" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Federation Trust</text>
+    <text x="532" y="203" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Certificate Mgmt</text>
+  </g>
+  
+  <!-- Cloud Platforms Card -->
+  <g filter="url(#shadow3)">
+    <rect x="645" y="80" width="175" height="145" rx="10" fill="#5b21b6" stroke="#a78bfa" stroke-width="2"/>
+    <text x="732" y="108" text-anchor="middle" fill="#c4b5fd" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600">☁️ Cloud Platforms</text>
+    <line x1="665" y1="120" x2="800" y2="120" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+    <text x="732" y="143" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Microsoft Azure</text>
+    <text x="732" y="163" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Salesforce</text>
+    <text x="732" y="183" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Azure VMs</text>
+    <text x="732" y="203" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11">Enterprise Apps</text>
+  </g>
+  
+  <!-- Key Accomplishments Box -->
+  <rect x="30" y="250" width="790" height="135" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="425" y="280" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">Key Accomplishments</text>
+  
+  <!-- Column positions: Col1 starts at 50, Col2 at 310, Col3 at 570 -->
+  <!-- Each column width ~250px, box padding 20px each side -->
+  
+  <!-- Row 1 -->
+  <text x="50" y="310" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="68" y="310" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Built hybrid identity infrastructure from scratch</text>
+  
+  <text x="310" y="310" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="328" y="310" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Configured SAML 2.0 federation with Salesforce</text>
+  
+  <text x="570" y="310" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="588" y="310" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Implemented enterprise-grade SSO</text>
+  
+  <!-- Row 2 -->
+  <text x="50" y="335" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="68" y="335" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Established directory synchronization (AD → Cloud)</text>
+  
+  <text x="310" y="335" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="328" y="335" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Demonstrated troubleshooting &amp; problem-solving</text>
+  
+  <text x="570" y="335" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="588" y="335" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Applied zero-trust security principles</text>
+  
+  <!-- Row 3 -->
+  <text x="50" y="360" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="68" y="360" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Certificate-based trust establishment</text>
+  
+  <text x="310" y="360" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="328" y="360" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">User provisioning &amp; attribute mapping</text>
+  
+  <text x="570" y="360" fill="#22c55e" font-family="Segoe UI, Arial, sans-serif" font-size="13">✓</text>
+  <text x="588" y="360" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Hybrid device registration</text>
+  
+  <!-- Footer - NO DATE -->
+  <text x="425" y="408" text-anchor="middle" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="10">Enterprise Identity Lab | Alvin Alves</text>
+</svg>

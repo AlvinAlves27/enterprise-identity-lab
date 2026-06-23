@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580">
+  <!-- Background -->
+  <rect width="900" height="580" fill="#0f172a"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <marker id="arr1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="arr2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00a1e0"/>
+    </marker>
+    <marker id="arr3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0078d4"/>
+    </marker>
+    <marker id="arr5" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arr7" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22c55e"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold">SAML 2.0 Single Sign-On Flow</text>
+  <text x="450" y="58" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="12">Microsoft Entra ID → Salesforce Federation</text>
+  
+  <!-- ============ MAIN BOXES ============ -->
+  
+  <!-- User Box (Left) -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="100" width="140" height="110" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="130" y="140" text-anchor="middle" fill="#60a5fa" font-family="Segoe UI, Arial, sans-serif" font-size="28">👤</text>
+    <text x="130" y="170" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500">End User</text>
+    <text x="130" y="190" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">Windows Device</text>
+  </g>
+  
+  <!-- Salesforce Box (Center) -->
+  <g filter="url(#shadow)">
+    <rect x="380" y="100" width="140" height="110" rx="12" fill="#1e293b" stroke="#00a1e0" stroke-width="2"/>
+    <text x="450" y="138" text-anchor="middle" fill="#00a1e0" font-family="Segoe UI, Arial, sans-serif" font-size="20">☁️</text>
+    <text x="450" y="165" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500">Salesforce</text>
+    <text x="450" y="185" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">Service Provider (SP)</text>
+  </g>
+  
+  <!-- Entra ID Box (Right) -->
+  <g filter="url(#shadow)">
+    <rect x="700" y="100" width="140" height="110" rx="12" fill="#1e293b" stroke="#0078d4" stroke-width="2"/>
+    <text x="770" y="138" text-anchor="middle" fill="#0078d4" font-family="Segoe UI, Arial, sans-serif" font-size="20">🔐</text>
+    <text x="770" y="165" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500">Entra ID</text>
+    <text x="770" y="185" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">Identity Provider (IdP)</text>
+  </g>
+  
+  <!-- ============ FLOW ARROWS - TOP ROW ============ -->
+  
+  <!-- Step 1: User → Salesforce -->
+  <path d="M 200 135 L 370 135" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+  <circle cx="285" cy="135" r="16" fill="#3b82f6"/>
+  <text x="285" y="140" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">1</text>
+  <text x="285" y="115" text-anchor="middle" fill="#93c5fd" font-family="Segoe UI, Arial, sans-serif" font-size="10">Access App</text>
+  
+  <!-- Step 2: Salesforce → Entra ID -->
+  <path d="M 520 135 L 690 135" fill="none" stroke="#00a1e0" stroke-width="2" marker-end="url(#arr2)"/>
+  <circle cx="605" cy="135" r="16" fill="#00a1e0"/>
+  <text x="605" y="140" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">2</text>
+  <text x="605" y="115" text-anchor="middle" fill="#67e8f9" font-family="Segoe UI, Arial, sans-serif" font-size="10">SAML Request</text>
+  
+  <!-- ============ RIGHT SIDE - AUTHENTICATION ============ -->
+  
+  <!-- Step 3: Auth arrow going down from Entra -->
+  <path d="M 770 210 L 770 260" fill="none" stroke="#0078d4" stroke-width="2" marker-end="url(#arr3)"/>
+  <circle cx="770" cy="235" r="16" fill="#0078d4"/>
+  <text x="770" y="240" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">3</text>
+  <text x="830" y="240" text-anchor="start" fill="#60a5fa" font-family="Segoe UI, Arial, sans-serif" font-size="10">Authenticate</text>
+  
+  <!-- Step 4: Validate box -->
+  <rect x="710" y="275" width="120" height="45" rx="8" fill="#0078d4" opacity="0.2" stroke="#0078d4" stroke-width="1"/>
+  <circle cx="735" cy="297" r="14" fill="#0078d4"/>
+  <text x="735" y="302" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold">4</text>
+  <text x="790" y="302" text-anchor="middle" fill="#60a5fa" font-family="Segoe UI, Arial, sans-serif" font-size="11">✓ Validate</text>
+  
+  <!-- ============ RETURN FLOW - BOTTOM ============ -->
+  
+  <!-- Step 5: Entra → Salesforce (SAML Assertion) -->
+  <path d="M 700 297 L 530 297" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arr5)"/>
+  <circle cx="615" cy="297" r="16" fill="#10b981"/>
+  <text x="615" y="302" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">5</text>
+  <text x="615" y="277" text-anchor="middle" fill="#6ee7b7" font-family="Segoe UI, Arial, sans-serif" font-size="10">SAML Assertion</text>
+  
+  <!-- Step 6: Verify Signature box at Salesforce -->
+  <rect x="390" y="275" width="130" height="45" rx="8" fill="#00a1e0" opacity="0.2" stroke="#00a1e0" stroke-width="1"/>
+  <circle cx="420" cy="297" r="14" fill="#00a1e0"/>
+  <text x="420" y="302" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold">6</text>
+  <text x="480" y="302" text-anchor="middle" fill="#67e8f9" font-family="Segoe UI, Arial, sans-serif" font-size="11">✓ Verify Sig</text>
+  
+  <!-- Step 7: Salesforce → User (Access Granted) -->
+  <path d="M 380 297 L 210 297" fill="none" stroke="#22c55e" stroke-width="3" marker-end="url(#arr7)"/>
+  <circle cx="295" cy="297" r="16" fill="#22c55e"/>
+  <text x="295" y="302" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">7</text>
+  <text x="295" y="277" text-anchor="middle" fill="#86efac" font-family="Segoe UI, Arial, sans-serif" font-size="10">Access Granted ✓</text>
+  
+  <!-- Success indicator at User -->
+  <rect x="70" y="275" width="120" height="45" rx="8" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="1"/>
+  <text x="130" y="302" text-anchor="middle" fill="#86efac" font-family="Segoe UI, Arial, sans-serif" font-size="11">✓ Logged In</text>
+  
+  <!-- ============ LEGEND BOX ============ -->
+  
+  <rect x="60" y="360" width="780" height="175" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="450" y="390" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">Authentication Flow Details</text>
+  
+  <!-- Divider line -->
+  <line x1="80" y1="405" x2="820" y2="405" stroke="#334155" stroke-width="1"/>
+  
+  <!-- LEFT COLUMN - Steps 1-4 -->
+  <!-- Step 1 -->
+  <circle cx="100" cy="430" r="12" fill="#3b82f6"/>
+  <text x="100" y="434" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold">1</text>
+  <text x="120" y="434" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">User clicks "Log in with sts" on Salesforce</text>
+  
+  <!-- Step 2 -->
+  <circle cx="100" cy="460" r="12" fill="#00a1e0"/>
+  <text x="100" y="464" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold">2</text>
+  <text x="120" y="464" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Salesforce redirects with SAML AuthnRequest</text>
+  
+  <!-- Step 3 -->
+  <circle cx="100" cy="490" r="12" fill="#0078d4"/>
+  <text x="100" y="494" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold">3</text>
+  <text x="120" y="494" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">User authenticates to Entra ID</text>
+  
+  <!-- Step 4 -->
+  <circle cx="100" cy="520" r="12" fill="#0078d4"/>
+  <text x="100" y="524" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold">4</text>
+  <text x="120" y="524" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Entra validates credentials (+ MFA if enabled)</text>
+  
+  <!-- RIGHT COLUMN - Steps 5-7 -->
+  <!-- Step 5 -->
+  <circle cx="480" cy="430" r="12" fill="#10b981"/>
+  <text x="480" y="434" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold">5</text>
+  <text x="500" y="434" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Entra issues signed SAML Assertion</text>
+  
+  <!-- Step 6 -->
+  <circle cx="480" cy="460" r="12" fill="#00a1e0"/>
+  <text x="480" y="464" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold">6</text>
+  <text x="500" y="464" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">Salesforce verifies signature with IdP certificate</text>
+  
+  <!-- Step 7 -->
+  <circle cx="480" cy="490" r="12" fill="#22c55e"/>
+  <text x="480" y="494" text-anchor="middle" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold">7</text>
+  <text x="500" y="494" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="10">User granted access to Salesforce ✓</text>
+  
+  <!-- Footer -->
+  <text x="450" y="560" text-anchor="middle" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="10">SAML 2.0 SP-Initiated SSO | Enterprise Identity Lab | Alvin Alves</text>
+</svg>

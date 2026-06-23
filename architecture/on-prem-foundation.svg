@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <linearGradient id="azureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0078d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#005a9e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="serverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d3748;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a202c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#38b2ac;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c7a7b;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#f7fafc"/>
+  
+  <!-- Azure Cloud Container -->
+  <rect x="40" y="30" width="820" height="440" rx="20" fill="#e6f2ff" stroke="#0078d4" stroke-width="2" stroke-dasharray="8,4"/>
+  
+  <!-- Azure Logo Area -->
+  <rect x="60" y="50" width="140" height="36" rx="6" fill="url(#azureGrad)"/>
+  <text x="130" y="74" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="white" text-anchor="middle">Microsoft Azure</text>
+  
+  <!-- Resource Group Box -->
+  <rect x="70" y="100" width="760" height="350" rx="12" fill="white" stroke="#cbd5e0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="70" y="100" width="760" height="40" rx="12" fill="#edf2f7"/>
+  <text x="90" y="126" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#4a5568">Resource Group: zerotrustlab</text>
+  <text x="730" y="126" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#718096">East US</text>
+  
+  <!-- Virtual Network Box -->
+  <rect x="100" y="160" width="700" height="270" rx="10" fill="#f0fff4" stroke="#48bb78" stroke-width="2"/>
+  <text x="120" y="185" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#276749">Virtual Network: zerotrustlab-vnet</text>
+  <text x="680" y="185" font-family="Consolas, monospace" font-size="11" fill="#276749">10.0.0.0/16</text>
+  
+  <!-- Subnet Box -->
+  <rect x="130" y="205" width="640" height="205" rx="8" fill="#f0fff4" stroke="#9ae6b4" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="150" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#48bb78">Subnet: default (10.0.0.0/24)</text>
+  
+  <!-- Domain Controller -->
+  <g transform="translate(180, 250)">
+    <rect width="200" height="140" rx="10" fill="url(#serverGrad)" filter="url(#shadow)"/>
+    <rect x="10" y="10" width="180" height="25" rx="4" fill="#4a5568"/>
+    <text x="100" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Domain Controller (DC)</text>
+    
+    <!-- Server Icon -->
+    <rect x="75" y="45" width="50" height="35" rx="3" fill="#718096"/>
+    <rect x="80" y="50" width="40" height="4" rx="1" fill="#48bb78"/>
+    <rect x="80" y="58" width="40" height="4" rx="1" fill="#48bb78"/>
+    <rect x="80" y="66" width="40" height="4" rx="1" fill="#4a5568"/>
+    <circle cx="115" cy="72" r="3" fill="#f6e05e"/>
+    
+    <!-- Server Details -->
+    <text x="100" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">Windows Server 2019</text>
+    <text x="100" y="112" font-family="Consolas, monospace" font-size="10" fill="#68d391" text-anchor="middle">10.0.0.4</text>
+    <text x="100" y="126" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#a0aec0" text-anchor="middle">AD DS • DNS Server</text>
+  </g>
+  
+  <!-- Windows 11 Client -->
+  <g transform="translate(520, 250)">
+    <rect width="200" height="140" rx="10" fill="url(#clientGrad)" filter="url(#shadow)"/>
+    <rect x="10" y="10" width="180" height="25" rx="4" fill="#285e61"/>
+    <text x="100" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Windows 11 Client</text>
+    
+    <!-- Laptop Icon -->
+    <rect x="65" y="48" width="70" height="45" rx="4" fill="#234e52"/>
+    <rect x="70" y="53" width="60" height="35" rx="2" fill="#81e6d9"/>
+    <rect x="55" y="95" width="90" height="8" rx="2" fill="#234e52"/>
+    
+    <!-- Client Details -->
+    <text x="100" y="118" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#b2f5ea" text-anchor="middle">Windows 11 Enterprise</text>
+    <text x="100" y="132" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#b2f5ea" text-anchor="middle">Domain-Joined Workstation</text>
+  </g>
+  
+  <!-- Connection Arrow -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#805ad5"/>
+    </marker>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#805ad5"/>
+    </marker>
+  </defs>
+  
+  <line x1="380" y1="320" x2="520" y2="320" stroke="#805ad5" stroke-width="3" marker-end="url(#arrowhead)" marker-start="url(#arrowhead2)"/>
+  
+  <!-- Connection Label -->
+  <rect x="405" y="295" width="90" height="22" rx="11" fill="#805ad5"/>
+  <text x="450" y="310" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="white" text-anchor="middle">Domain Join</text>
+  
+  <!-- Domain Label -->
+  <rect x="330" y="420" width="240" height="32" rx="16" fill="#5a67d8" filter="url(#shadow)"/>
+  <text x="450" y="441" font-family="Consolas, monospace" font-size="13" font-weight="600" fill="white" text-anchor="middle">zerotrustlabs.local</text>
+  
+  <!-- Legend -->
+  <g transform="translate(620, 55)">
+    <rect width="180" height="70" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="20" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#4a5568">LEGEND</text>
+    <rect x="15" y="30" width="12" height="12" rx="2" fill="url(#serverGrad)"/>
+    <text x="35" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#718096">Domain Controller</text>
+    <rect x="15" y="48" width="12" height="12" rx="2" fill="url(#clientGrad)"/>
+    <text x="35" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#718096">Managed Workstation</text>
+  </g>
+</svg>
